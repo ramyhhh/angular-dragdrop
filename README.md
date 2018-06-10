@@ -64,5 +64,5 @@ Classes are added and removed by default to element being dragged, and element b
 .drag-over { border: dashed 2px #ccc; }
 ```
 # Getting started
-Go to [https://codesandbox.io/s/github/ramyhhh/angular-dragdrop](project page), and copy dd.ts to your project, and make sure to declare the directives within you ngModule.
+Go to project page [https://codesandbox.io/s/github/ramyhhh/angular-dragdrop], and copy dd.ts to your project, and make sure to declare the directives within you ngModule.
 **and that's it** , sorry for not packaging it with npm, maybe later :)
