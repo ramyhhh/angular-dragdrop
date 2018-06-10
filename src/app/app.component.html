@@ -1,0 +1,44 @@
+<h1>Simple drag</h1>
+<p>You can make element draggble, and its parent as well, without the event getting bubbled up dom tree. So try dragging and
+	item and dragging the items box itself.</p>
+<div drag class="box">
+	<div *ngFor="let item of items" [drag]="item" class="box box-fill">{{item.name}}</div>
+</div>
+<h1>Simple drop</h1>
+<p></p>Drop any element in the box, and you should see the dragDropEvent serialized, also you can drop files into it, as any
+typical file drop zone.
+<div drop drop-files="true" (dropped)="onDrop($event)">
+	DROP ANYTHING HERE {{ item | json}}
+</div>
+<h1>Drag drop and working with data</h1>
+<p>By binind an object to the drag directive, you can transfer this object to the drop handler wrapped inside the dragDropEvent,
+	with optional additional object called drag collection. </p>
+<p>The same concept applies for drop directive, this is useful for manuplating state based on dragging and dropping</p>
+<p>The following box has drag-out enabled which means it will autimaticly remove drag object from drag collection, and at the
+	same time the box has drop-in enabled, which will add the drag object to the drop collection at the index of dorp object</p>
+<div class="box">
+	<div *ngFor="let item of items1" class="box box-fill" [drag]="item" [drag-collection]="items1" drag-out="true" [drop]="item"
+	 [drop-collection]="items1" drop-in="true">
+		{{item.name}}
+	</div>
+</div>
+<h1>Drag tag</h1>
+<p>When you enable drop on element anything dragged could be dropped on it, so to help handleing dropped event it's useful to
+	tag the dragged element to easily identify what to do with it.</p>
+<p>Try trashing something that has drag-tag equal to tag1 via drop zone that looks only for tag2, nothing will happen</p>
+<table>
+	<tr>
+		<td>
+			<div *ngFor="let item of items" [drag]="item" drag-tag="tag1" class="box box-fill">{{item.name}} (tag1)</div>
+			<div drop drop-files="true" (dropped)="trashTag1($event)" class="trash">
+				Items with tag1 only, will be trashed
+			</div>
+		</td>
+		<td>
+			<div *ngFor="let item of items" [drag]="item" drag-tag="tag2" class="box box-fill">{{item.name}} (tag2)</div>
+			<div drop drop-files="true" (dropped)="trashTag2($event)" class="trash">
+				Items with tag2 only, will be trashed
+			</div>
+		</td>
+	</tr>
+</table>

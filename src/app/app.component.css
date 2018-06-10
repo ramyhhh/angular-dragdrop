@@ -1,0 +1,21 @@
+.box {
+  padding: 10px;
+  border: solid 1px #ccc;
+}
+.box-fill {
+  background-color: #f2f2f2;
+}
+.trash {
+  color: red;
+}
+
+[drag],[ng-reflect-drag] {
+  cursor: pointer;
+}
+
+[drop],[ng-reflect-drop] {
+  border: solid 1px #ccc;
+  padding: 10px;
+}
+.dragging { opacity: 0.5; border: dotted 2px #ccc }
+.drag-over { border: dashed 2px #ccc; }
