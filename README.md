@@ -63,6 +63,13 @@ Classes are added and removed by default to element being dragged, and element b
 .dragging { opacity: 0.5; border: dotted 2px #ccc }
 .drag-over { border: dashed 2px #ccc; }
 ```
+## Drag drop files (ex: Upload box)
+Just set **drop-files** to tru
+```html
+<div drop drop-files="true" (dropped)="onDrop($event)">
+	DROP ANYTHING HERE
+</div>
+```
 # Getting started
 Go to project page [https://codesandbox.io/s/github/ramyhhh/angular-dragdrop], and copy dd.ts to your project, and make sure to declare the directives within you ngModule.
 **and that's it** , sorry for not packaging it with npm, maybe later :)
